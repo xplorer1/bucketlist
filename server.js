@@ -7,17 +7,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-let mongoose = require('mongoose'); // for working w/ our database
-let config = require('./config');
-
-mongoose.Promise = global.Promise;
-mongoose.connect(config.database, { useUnifiedTopology: true, useNewUrlParser: true });
-
-let conn = mongoose.connection;
-conn.on('error', function(err){
-    console.log('mongoose connection error:', err.message);
-});
-
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());

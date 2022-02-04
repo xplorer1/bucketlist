@@ -11,7 +11,7 @@ function Audience() {
 
 	const watchStream = async () => {
 	  try {
-	    const response = await fetch('http://localhost:9000/api/user/restaurant/audience_token', {
+	    const response = await fetch('https://streameats.herokuapp.com/api/user/restaurant/audience_token', {
 	      method: 'POST',
 	      headers: {
 	        'Content-Type': 'application/json',

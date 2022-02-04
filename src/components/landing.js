@@ -5,7 +5,7 @@ function TwilioIndex() {
     return (
         <div className='container mx-auto mt-20 text-center'>
 			<div className='mx-auto'>
-			  <a href='/stream' className='hover:no-underline hover:text-blue-500 text-xl'>start a livestream</a>
+			  <a href='/streamer' className='hover:no-underline hover:text-blue-500 text-xl'>start a livestream</a>
 			</div>
 
 			<div className='mx-auto mt-10'>

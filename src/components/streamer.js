@@ -14,6 +14,8 @@ function Streamer() {
 	let [streamDetails, setStreamDetails] = useState({});
 
 	const addLocalVideo = async () => {
+		console.log("Called!");
+		
 		let videoTrack = await window.Twilio.Video.createLocalVideoTrack();
 		let trackElement = videoTrack.attach();
 		stream.appendChild(trackElement);
@@ -21,7 +23,7 @@ function Streamer() {
 
 	const startStream = async (streamName, identity) => {
 	  // Create the livestream
-	  const startStreamResponse = await fetch('http://localhost:9000/api/user/restaurant/start_stream', {
+	  const startStreamResponse = await fetch('https://streameats.herokuapp.com/api/user/restaurant/start_stream', {
 	    method: 'POST',
 	    headers: {
 	      'Content-Type': 'application/json',
@@ -40,7 +42,7 @@ function Streamer() {
 		const roomId = streamRes.data.roomId;
 
 		// Get an Access Token
-		const tokenResponse = await fetch('http://localhost:9000/api/user/restaurant/streamer_token', {
+		const tokenResponse = await fetch('https://streameats.herokuapp.com/api/user/restaurant/streamer_token', {
 			method: 'POST',
 			headers: {
 			  'Content-Type': 'application/json',
@@ -72,7 +74,7 @@ function Streamer() {
 	  // If streaming, end the stream
 	  if (streaming) {
 	    try {
-	      const response = await fetch('/http://localhost:9000/api/user/restaurant/end_stream', {
+	      const response = await fetch('https://streameats.herokuapp.com/api/user/restaurant/end_stream', {
 	        method: 'POST',
 	        headers: {
 	          'Content-Type': 'application/json',

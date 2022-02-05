@@ -80,7 +80,11 @@ function Streamer() {
 	          'Content-Type': 'application/json',
 	        },
 	        body: JSON.stringify({
-	          streamDetails: streamDetails
+				"streamId": streamDetails.streamId,
+				"streamName": streamDetails.streamName,
+				"roomId": streamDetails.roomId,
+				"playerStreamerId": streamDetails.playerStreamerId,
+				"mediaProcessorId": streamDetails.mediaProcessorId
 	        })
 	      });
 
@@ -130,6 +134,17 @@ function Streamer() {
 	  }
 	};
 
+	let tryit = () => {
+		try {
+			console.log("Before call");
+			let roomDetails = window.Twilio.Video.connect("");
+			console.log("roomDetails: ", roomDetails);
+		} catch (error) {
+	
+			console.log("error: ", error);
+		}
+	}
+
 	window.addEventListener('beforeunload', async (event) => {
 	  event.preventDefault();
 	  await endStream();
@@ -137,6 +152,7 @@ function Streamer() {
 	});
 
 	useEffect(() => {
+
 		stream = document.getElementById('stream');
 		identityInput = document.getElementById('identity');
 		streamNameInput = document.getElementById('streamName');

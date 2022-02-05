@@ -18,14 +18,16 @@ function Audience() {
 	      }
 	    });
 
-	    const data = await response.json();
+	    const result = await response.json();
 
-	    if (data.message) {
-	      alert(data.message);
-	      return;
-	    }
+		console.log("Result: ", result);
 
-	    player = await window.Twilio.Live.Player.connect(data.token, {playerWasmAssetsPath: '../livePlayer'});
+	    // if (data.message) {
+	    //   alert(data.message);
+	    //   return;
+	    // }
+
+	    player = await window.Twilio.Live.Player.connect(result.data, {playerWasmAssetsPath: '/livePlayer'});
 	    player.play();
 	    streamPlayer.appendChild(player.videoElement);
 

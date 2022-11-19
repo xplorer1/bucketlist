@@ -27,7 +27,7 @@
     "react-loaders": "^3.0.1",
     "react-paystack": "^3.0.5",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0",
+    "react-scripts": "5.0.1",
     "sequelize": "^5.21.4",
     "store": "^2.0.12",
     "styled-components": "^4.4.0",
